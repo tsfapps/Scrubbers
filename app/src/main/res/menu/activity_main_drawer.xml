@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_profile"
+            android:icon="@drawable/profile_24dp"
+            android:title="Profile" />
+        <item
+            android:id="@+id/pickup_req"
+            android:icon="@drawable/pickup_request_24dp"
+            android:title="Pickup Request" />
+        <item
+            android:id="@+id/pickup_list"
+            android:icon="@drawable/pick_up_list_24dp"
+            android:title="Pickup List" />
+        <item
+            android:id="@+id/rate_chart"
+            android:icon="@drawable/ratechart_24dp"
+            android:title="Rate Chart" />
+
+        <item
+            android:id="@+id/del_list"
+            android:icon="@drawable/pick_up_list_24dp"
+            android:title="Delivery List" />
+
+        <item
+            android:id="@+id/termcondition"
+            android:icon="@drawable/termcondition_24dp"
+            android:title="Term  Conditions" />
+
+        <item
+            android:id="@+id/LagOut"
+            android:icon="@drawable/logout_24dp"
+            android:title="Logout" />
+    </group>
+
+    <item android:title="Communicate">
+        <menu>
+            <item
+                android:id="@+id/nav_share"
+                android:icon="@drawable/ic_menu_share"
+                android:title="@string/menu_share" />
+            <item
+                android:id="@+id/nav_send"
+                android:icon="@drawable/ic_menu_send"
+                android:title="@string/menu_send" />
+        </menu>
+    </item>
+
+</menu>
