@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="#E9E4E1"
     android:orientation="vertical"
-    tools:context=".Activity.Login">
+    tools:context="com.ecom.scrubbers.activity.LoginActivity">
 
 
     <ImageView

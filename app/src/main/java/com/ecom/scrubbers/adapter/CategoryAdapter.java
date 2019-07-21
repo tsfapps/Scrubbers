@@ -1,4 +1,4 @@
-package com.ecom.scrubbers.Activity;
+package com.ecom.scrubbers.adapter;
 
 import android.content.Context;
 import android.content.Intent;
@@ -15,6 +15,10 @@ import com.bumptech.glide.Glide;
 import com.ecom.scrubbers.R;
 
 import java.util.List;
+
+import com.ecom.scrubbers.utils.Constant;
+import com.ecom.scrubbers.model.ModelCategory;
+import com.ecom.scrubbers.activity.PickupActivity;
 
 public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.ViewHolder> {
     private Context context;

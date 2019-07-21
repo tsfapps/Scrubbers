@@ -7,7 +7,7 @@
     android:background="@color/light"
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context=".Activity.MainActivity"
+    tools:context="com.ecom.scrubbers.activity.MainActivity"
     tools:showIn="@layout/app_bar_main">
 
 

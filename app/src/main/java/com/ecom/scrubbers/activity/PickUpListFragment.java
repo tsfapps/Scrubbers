@@ -1,4 +1,4 @@
-package com.ecom.scrubbers.Activity;
+package com.ecom.scrubbers.activity;
 
 
 import android.os.Bundle;

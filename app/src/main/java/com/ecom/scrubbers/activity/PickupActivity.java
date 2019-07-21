@@ -1,4 +1,4 @@
-package com.ecom.scrubbers.Activity;
+package com.ecom.scrubbers.activity;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -9,6 +9,8 @@ import android.widget.Toast;
 
 import com.ecom.scrubbers.R;
 
+import com.ecom.scrubbers.api.RetrofitClient;
+import com.ecom.scrubbers.model.ModelCategory;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;

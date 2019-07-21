@@ -1,31 +1,34 @@
-package com.ecom.scrubbers.Activity;
+package com.ecom.scrubbers.activity;
 
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.AttributeSet;
 import android.util.Log;
 import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.ecom.scrubbers.R;
 
-import okhttp3.ResponseBody;
+import com.ecom.scrubbers.api.RetrofitClient;
+import com.ecom.scrubbers.model.user.ModelLogin;
+import com.ecom.scrubbers.utils.Constant;
+import com.ecom.scrubbers.utils.CustomMethod;
+
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class Login extends AppCompatActivity {
+public class LoginActivity extends AppCompatActivity {
 
+    private Context tContext;
     private EditText etemail, etpass;
     private Button btn;
-    ProgressDialog progressBar;
+   private ProgressDialog progressBar;
 
 
     @Override
@@ -36,6 +39,7 @@ public class Login extends AppCompatActivity {
         etemail = findViewById(R.id.et_email_log);
         etpass = findViewById(R.id.et_pass_log);
         btn = findViewById(R.id.btn_login);
+        tContext = getApplicationContext();
 
     }
 
@@ -43,9 +47,6 @@ public class Login extends AppCompatActivity {
     private void userLogin() {
 
         String email = etemail.getText().toString().trim();
-
-        Log.d("swetabh", "Respose:" + email.toString());
-
 
         String password = etpass.getText().toString().trim();
 
@@ -82,10 +83,15 @@ public class Login extends AppCompatActivity {
             @Override
             public void onResponse(Call<ModelLogin> call, Response<ModelLogin> response) {
 
-                ModelLogin m = response.body();
-                Toast.makeText(Login.this, m.getMessage(), Toast.LENGTH_LONG).show();
+                ModelLogin tModel = response.body();
+                Log.d(Constant.TAG, "Login Response Message : "+response.message());
+                Log.d(Constant.TAG, "Login Response : "+response.errorBody());
+                Log.d(Constant.TAG, "Login Call : "+call.toString());
 
-                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+
+                CustomMethod.callProgress(Constant.LOGIN_MSG, progressBar, tContext);
+                Toast.makeText(LoginActivity.this, tModel.getMessage(), Toast.LENGTH_LONG).show();
+                Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                 startActivity(intent);
 
 
@@ -94,6 +100,7 @@ public class Login extends AppCompatActivity {
             @Override
             public void onFailure(Call<ModelLogin> call, Throwable t) {
 
+                Log.d(Constant.TAG, "Login Failure : "+t);
             }
         });
 
@@ -102,14 +109,6 @@ public class Login extends AppCompatActivity {
 
 
     public void clickView(View view) {
-
-
-        progressBar = new ProgressDialog(this);
-        progressBar.setMessage("LOGIN IN PROGRESS");
-        progressBar.setProgressStyle(ProgressDialog.STYLE_SPINNER);
-        progressBar.setIndeterminate(true);
-        progressBar.setProgress(50);
-        progressBar.show();
 
 
         switch (view.getId()) {
@@ -121,7 +120,7 @@ public class Login extends AppCompatActivity {
 
 
     public void textClick(View view) {
-        Intent intent = new Intent(this, Registration.class);
+        Intent intent = new Intent(LoginActivity.this, RegistrationActivity.class);
         startActivity(intent);
     }
 

@@ -1,4 +1,4 @@
-package com.ecom.scrubbers.Activity;
+package com.ecom.scrubbers.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -20,6 +20,10 @@ import com.ecom.scrubbers.R;
 
 import java.util.List;
 
+import com.ecom.scrubbers.adapter.CategoryAdapter;
+import com.ecom.scrubbers.api.Api;
+import com.ecom.scrubbers.api.RetrofitClient;
+import com.ecom.scrubbers.model.ModelCategory;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
